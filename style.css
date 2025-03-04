@@ -33,7 +33,7 @@ body {
     padding-bottom: 1em;
 }
 
-.container-main h3 {
+.container-main h3:not(#timing) {
    
     overflow: hidden;
     border-bottom: solid 1px #bbbbbb;
