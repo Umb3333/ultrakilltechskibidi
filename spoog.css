@@ -11,26 +11,26 @@ body{
     font-family: 'ULTRAFONT';
 }
 
-.Toc {
+.toc {
     background: black;
     padding: 15px;
     border-radius: 8px;
     width: 300px;
 }
 
-.Toc h2 {
+.toc h2 {
     font-size: 20px;
     border-bottom: 1px solid gray;
     padding-bottom: 5px;
     font-family: 'ULTRAFONT';
 }
 
-.Toc ul {
+.toc ul {
     list-style: none;
     padding-left: 10px;
 }
 
-.Toc li {
+.toc li {
     margin: 5px 0;
 }
 
@@ -41,5 +41,16 @@ body{
 
 .toggle {
     cursor: pointer;
+    color: #ff5555;
+}
+
+.hide-btn {
+    cursor: pointer;
+    color: white;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.hide-btn:hover {
     color: #ff5555;
 }
