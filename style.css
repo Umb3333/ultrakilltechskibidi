@@ -5,6 +5,10 @@
     font-style: normal;
 }
 
+:root {
+    --background-color: rgba(0, 0, 0, 0.9);
+}
+
 body {
     font-family: 'ULTRAFONT';
 }
@@ -19,7 +23,7 @@ body {
     justify-content: center;
     height: 100vh;
     width: 70vw;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: var(--background-color);
     color: #e6e6e6;
     padding-right: 1em;
     padding-left: 1em;
@@ -30,4 +34,49 @@ body {
     overflow: hidden;
     border-bottom: solid 1px #bbbbbb;
     border-image: linear-gradient(to right,var(#e6e6e6)),50%,transparent,100%,transparent 1;
+}
+
+
+.tech-tester {
+    /* display: inline-flex;
+    flex-direction: column; */
+    display: block;
+    justify-content: center;
+    padding: 2em;
+    border-color: #e6e6e6;
+    border-width: 2px;
+    border-style: solid;
+}
+
+/* .tech-tester:not(#start-btn) {
+    display: inline-flex;
+    flex-direction: row;
+} */
+
+#binds {
+    
+    border-color: #e6e6e6;
+    border-width: 2px;
+    border-style: solid;
+    min-width: 5vw;
+}
+
+.bindbox {
+    display: inline-flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+.start {
+    display: flex;
+    justify-content: center;
+}
+#start-btn {
+   justify-content: center;
+    border-width: 2px;
+    background-color: transparent;
+    color: #e6e6e6;
+    font-family: 'ULTRAFONT';
+    min-width: 10vw;
+    min-height: 5vh;
+
 }
