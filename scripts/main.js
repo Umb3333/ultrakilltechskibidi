@@ -4,6 +4,9 @@ const start = document.getElementById('start-btn');
 const output = document.querySelector('.timeoutput');
 const button1 = document.querySelector('.bind1-btn');
 const button2 = document.querySelector('.bind2-btn');
+const dropdown_button = document.querySelector('.dropbtn');
+const dropdown_content = document.querySelector('.dropup-content');
+const dropdown_A = document.querySelectorAll('drop-A');
 
 
 const keyBindings = {
@@ -110,4 +113,13 @@ function handleStart() {
 
 start.addEventListener('click', () => {
     handleStart();
+});
+
+
+dropdown_button.addEventListener('click', () => {
+    dropdown_content.style.display = dropdown_content.style.display === 'flex' ? 'none' : 'flex';
+});
+
+dropdown_A.addEventListener('click', () => {
+    dropdown_content.style.display = 'none';
 });
