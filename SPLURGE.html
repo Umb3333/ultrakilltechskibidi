@@ -7,10 +7,13 @@
     <title>Ultrasplurge</title>
 </head>
 <body>
-    <div class="Toc">
+    <div class="toc">
+        <div class="toc-header">
         <h2>Contents</h2>
-        <ul>
-            <li><span class="toggle">▶</span>Basic tech
+        <span class="hide-btn">[hide]</span>
+        </div>
+        <ul class="toc-list">
+            <li><span class="toggle">▶ </span>Basic tech
                 <ul class="nested">
                     <li>1. Tech
                         <li>1.1 Dash Jump</li>
@@ -26,10 +29,21 @@
             let nested = this.nextElementSibling;
             if(nested.style.display === "block") {
                 nested.style.display = "none";
-                this.textContent = "▶";
+                this.textContent = "▶ ";
             } else {
                 nested.style.display = "block";
-                this.textContent = "▼";
+                this.textContent = "▼ ";
+            }
+        });
+
+        document.querySelector('.hide-btn').addEventListener('click', function() {
+            let tocList = document.querySelector('.toc-list');
+            if (tocList.style.display === "none") {
+                tocList.style.display = "block";
+                this.textContent = "[hide]";
+            } else {
+                tocList.style.display = "none";
+                this.textContent = "[show]";
             }
         });
     </script>
