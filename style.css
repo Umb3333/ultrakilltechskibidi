@@ -46,6 +46,7 @@ body {
     border-color: #e6e6e6;
     border-width: 2px;
     border-style: solid;
+    min-width: 30vw;
 }
 
 /* .tech-tester:not(#start-btn) {
@@ -55,15 +56,25 @@ body {
 
 #binds {
     
-    border-color: #e6e6e6;
+    /* border-color: #e6e6e6;
     border-width: 2px;
     border-style: solid;
-    min-width: 5vw;
+    min-width: 5vw; */
 }
+
+#binds button {
+    background-color: transparent;
+    color: #e6e6e6;
+    font-family: 'ULTRAFONT';
+    min-width: 5vw;
+    min-height: 5vh;
+}
+
 
 .bindbox {
     display: inline-flex;
     flex-direction: row;
+    justify-content: center;
     gap: 1rem;
 }
 .start {
@@ -71,6 +82,7 @@ body {
     justify-content: center;
 }
 #start-btn {
+    margin-top: 1em;
    justify-content: center;
     border-width: 2px;
     background-color: transparent;
@@ -79,4 +91,12 @@ body {
     min-width: 10vw;
     min-height: 5vh;
 
+}
+
+.output {
+    margin-top: 2em;
+    padding: 2em;
+    border-color: #e6e6e6;
+    border-width: 2px;
+    border-style: solid;
 }
