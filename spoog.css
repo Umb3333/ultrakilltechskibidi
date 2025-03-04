@@ -1,7 +1,14 @@
+@font-face {
+    font-family: 'ULTRAFONT';
+    src: url('VCR_OSD_MONO_1.001.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body{
     background-color: #111;
     color: white;
-    font-family: monospace;
+    font-family: 'ULTRAFONT';
 }
 
 .Toc {
@@ -15,6 +22,7 @@ body{
     font-size: 20px;
     border-bottom: 1px solid gray;
     padding-bottom: 5px;
+    font-family: 'ULTRAFONT';
 }
 
 .Toc ul {
