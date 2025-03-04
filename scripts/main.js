@@ -1,36 +1,46 @@
 const button1div = document.querySelector('.bind1');
 const button2div = document.querySelector('.bind2');
 const start = document.getElementById('start-btn');
-const output = document.querySelector('.output');
+const output = document.querySelector('.timeoutput');
 const button1 = document.querySelector('.bind1-btn');
 const button2 = document.querySelector('.bind2-btn');
 
+
 const keyBindings = {
-    button1: "CTRL", 
-    button2: "SPACE", 
+    button1: null, 
+    button2: null, 
 };
 
-function handleKeyDown(button) {
+document.addEventListener('DOMContentLoaded', () =>{
+     keyBindings = {
+        button1: "ControlLeft", 
+        button2: "Space", 
+    };
+})
+
+
+function handleKeyDown(button, keyBindingKey) {
     return function () {
         button.textContent = "BIND.."; 
 
-        
         function keyDownHandler(e) {
             e.preventDefault(); 
+            console.log(e.code);
 
-            if (e.key === "Escape") {
+            if (e.code === "Escape") {
                 
-                button.textContent = keyBindings[keyBindingKey];
-                
+                button.textContent = "BIND";
+                keyBindings[keyBindingKey] = null; 
                 document.removeEventListener('keydown', keyDownHandler);
                 return;
             }
 
             
-            button.textContent = e.key.toUpperCase();
-            console.log(`Key bound for ${button.className}: ${e.key}`);
+            button.textContent = e.code.toUpperCase();
+            keyBindings[keyBindingKey] = e.code; 
+            console.log(`Key bound for ${keyBindingKey}: ${e.code}`);
 
-            
+           
             document.removeEventListener('keydown', keyDownHandler);
         }
 
@@ -40,43 +50,53 @@ function handleKeyDown(button) {
 }
 
 
-button1.addEventListener('click', handleKeyDown(button1));
-button2.addEventListener('click', handleKeyDown(button2));
+button1.addEventListener('click', handleKeyDown(button1, 'button1'));
+button2.addEventListener('click', handleKeyDown(button2, 'button2'));
 
 
 function handleStart() {
-    let FirstTStamp = null; 
-    let SecondTStamp = null; 
+    console.log("skividi");
+    let FirstTStamp = null;
+    let SecondTStamp = null;
 
-    document.addEventListener('keydown', (e) => {
-        
-        if (e.key === button1.textContent.toLowerCase()) {
-            FirstTStamp = performance.now(); 
+    
+    function keytrack(e) {
+        console.log(e.code);
+
+
+        if (e.code === keyBindings.button1) {
+            FirstTStamp = performance.now();
             console.log(`Button 1 key pressed at: ${FirstTStamp}`);
         }
 
-        if (e.key === button2.textContent.toLowerCase()) {
+        
+        if (e.code === keyBindings.button2) {
             SecondTStamp = performance.now();
             console.log(`Button 2 key pressed at: ${SecondTStamp}`);
         }
 
-      
+       
         if (FirstTStamp && SecondTStamp) {
             const timeDifference = SecondTStamp - FirstTStamp;
-            console.log(`Time difference between button1 and button2: ${timeDifference} ms`);
+            if (timeDifference < 200) {
+                output.innerHTML += `<div class = "output-text-success">Done in ${timeDifference}ms </div>`;
+            }
+            else {
+                output.innerHTML += `<div class = "output-text-fail">Done in ${timeDifference}ms</div>`;
+            }
+
+            
+            FirstTStamp = null;
+            SecondTStamp = null;
         }
-    });
+        
+    }
+
+    
+    document.addEventListener('keydown', keytrack);
 }
 
+
 start.addEventListener('click', () => {
-// var allowedkeys = {button1: button1.textContent, button2: button2.textContent};
-// var pattern = {button1: button1.textContent, button2: button2.textContent};
-// var key = allowedKeys[e.keyCode];
-handleStart();
-
-
-
-
-
-
+    handleStart();
 });
