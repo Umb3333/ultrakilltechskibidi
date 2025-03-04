@@ -1,3 +1,18 @@
+html{
+    background-color: #000;
+    opacity: 90%;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    border: 5px solid blue;
+    pointer-events: none; /* Förhindrar att den påverkar interaktionen */
+}
 :root {
     /* Color */
     --text-color: #222222;
@@ -5,12 +20,12 @@
     --button-highlight: #ffffff;
     --button-face: #dfdfdf;
     --button-shadow: #808080;
-    --window-frame: #0a0a0a;
-    --dialog-blue: #000080;
-    --dialog-blue-light: #1084d0;
+    --window-frame: #000000;
+    --dialog-blue: #a21c1c;
+    --dialog-blue-light: #a21c1c;
     --dialog-gray: #808080;
     --dialog-gray-light: #b5b5b5;
-    --link-blue: red;
+    --link-blue: blue;
   
     /* Spacing */
     --element-spacing: 8px;
