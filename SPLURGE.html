@@ -3,9 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="spoog.css">
+    <title>Ultrasplurge</title>
 </head>
 <body>
-    
+    <div class="Toc">
+        <h2>Contents</h2>
+        <ul>
+            <li><span class="toggle">▶</span>Basic tech
+                <ul class="nested">
+                    <li>1. Tech
+                        <li>1.1 Dash Jump</li>
+                        <li>1.2 Slam Storage</li>
+                        <li>1.3 Projectile Boost</li>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script>
+        document.querySelector('.toggle').addEventListener('click', function(){
+            let nested = this.nextElementSibling;
+            if(nested.style.display === "block") {
+                nested.style.display = "none";
+                this.textContent = "▶";
+            } else {
+                nested.style.display = "block";
+                this.textContent = "▼";
+            }
+        });
+    </script>
 </body>
 </html>
