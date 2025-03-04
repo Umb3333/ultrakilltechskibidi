@@ -53,16 +53,21 @@ function handleKeyDown(button, keyBindingKey) {
 button1.addEventListener('click', handleKeyDown(button1, 'button1'));
 button2.addEventListener('click', handleKeyDown(button2, 'button2'));
 
+let isKeytrackActive = false;
 
 function handleStart() {
     console.log("skividi");
     let FirstTStamp = null;
     let SecondTStamp = null;
+    if (isKeytrackActive) {
+        console.log("Keytrack listener is already active.");
+        return;
+    }
 
     
     function keytrack(e) {
         console.log(e.code);
-
+        let pattern = {button1, button2};
 
         if (e.code === keyBindings.button1) {
             FirstTStamp = performance.now();
@@ -78,12 +83,16 @@ function handleStart() {
        
         if (FirstTStamp && SecondTStamp) {
             const timeDifference = SecondTStamp - FirstTStamp;
-            if (timeDifference < 200) {
+            if ( timeDifference < 0) {
+                output.innerHTML += `<div class = "output-text-fail">Wrong order!</div>`;
+            }
+            else if (timeDifference < 130) {
                 output.innerHTML += `<div class = "output-text-success">Done in ${timeDifference}ms </div>`;
             }
-            else {
+            else if(timeDifference > 130) {
                 output.innerHTML += `<div class = "output-text-fail">Done in ${timeDifference}ms</div>`;
             }
+            
 
             
             FirstTStamp = null;
@@ -94,6 +103,8 @@ function handleStart() {
 
     
     document.addEventListener('keydown', keytrack);
+    isKeytrackActive = true; 
+    
 }
 
 

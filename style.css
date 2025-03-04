@@ -21,7 +21,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+        
     width: 70vw;
     background-color: var(--background-color);
     color: #e6e6e6;
@@ -103,7 +103,7 @@ body {
     overflow: auto;
     display: flex;
     flex-direction: column-reverse;
-    max-height: 20vh;
+    max-height: 12vh;
 }
 
 .output-text-success { 
