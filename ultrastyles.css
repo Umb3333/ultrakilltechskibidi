@@ -323,6 +323,7 @@ body::before {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 101.3%;
   }
   
   .title-bar.inactive {
