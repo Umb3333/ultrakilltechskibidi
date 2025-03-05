@@ -8,9 +8,9 @@ const dropdown_button = document.querySelector('.dropbtn');
 const dropdown_content = document.querySelector('.dropup-content');
 const dropdown_A = document.querySelectorAll('drop-A');
 const timingH4 = document.getElementById('#timing');
-const DashID = document.getElementById('DashJumpID');
-const SlamID = document.getElementById('SlamStorageID');
-const ProjectileID = document.getElementById('ProjectileBoostID');
+const DashID = document.getElementById('DashTab');
+const SlamID = document.getElementById('SlamStorageTab');
+const ProjectileID = document.getElementById('ProjectileBoostTab');
 
 
 const keyBindings = {

@@ -334,7 +334,8 @@ body::before {
     border-style: solid;
     border-width: 4px;
     border-color: var(--dialog-3);
-    border-radius: 0% 3% 0% 0%;
+    border-radius: 0% 0% 0% 0%;
+    max-height: 2em;
   }
   
   .title-bar.inactive {
