@@ -79,8 +79,8 @@ body {
     background-color: transparent;
     color: #e6e6e6;
     font-family: 'ULTRAFONT';
-    min-width: 5vw;
-    min-height: 5vh;
+    min-width: 7vw;
+    min-height: 7vh;
 }
 
 
@@ -121,10 +121,14 @@ body {
 
 .output-text-success { 
     background-color: green;
+    padding-left: 2%;
+    font-size:small;
 }
 
 .output-text-fail {
     background-color: red;
+    padding-left: 2%;
+    font-size: small;
 }
 
 .AbsDiv {
@@ -156,7 +160,7 @@ body {
     position: absolute;
     background-color: transparent;
     min-width: 8vw;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    
     z-index: 1;
     text-decoration: none;
   }
@@ -174,7 +178,13 @@ body {
     margin-bottom: -1.2%;
   }
 
+  .output h2 {
+    font-size: 200%;
+  }
 
+  .timeoutput {
+    margin-left: 2%;
+  }
   
   
   
