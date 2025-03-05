@@ -78,7 +78,6 @@ body::before {
     left: 0;
     width: 100vw;
     height: 100vh;
-    border: 5px solid blue;
     pointer-events: none; /* Förhindrar att den påverkar interaktionen */
 }
 :root {
