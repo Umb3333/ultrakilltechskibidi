@@ -8,6 +8,9 @@ const dropdown_button = document.querySelector('.dropbtn');
 const dropdown_content = document.querySelector('.dropup-content');
 const dropdown_A = document.querySelectorAll('drop-A');
 const timingH4 = document.getElementById('#timing');
+const DashID = document.getElementById('DashJumpID');
+const SlamID = document.getElementById('SlamStorageID');
+const ProjectileID = document.getElementById('ProjectileBoostID');
 
 
 const keyBindings = {
@@ -159,7 +162,70 @@ window.addEventListener('hashchange', function() {
             currentTiming = 100;
             document.getElementById('timing').textContent = `Required timing: ${currentTiming}ms`;
             break;
+
+        case '#CONTENTSlamStorage':
+            if (SlamID.style.transform === 'translateX(22vw)') 
+                {
+                SlamID.style.transform = 'translateX(0vw)';
+                SlamID.style.visibility = 'hidden';
+            } else {
+                SlamID.style.transform = 'translateX(22vw)';
+                SlamID.style.visibility = 'visible';
+
+                DashID.style.transform = 'translateX(0vw)';
+                DashID.style.visibility = 'hidden';
+
+                ProjectileID.style.transform = 'translateX(0vw)';
+                ProjectileID.style.visibility = 'hidden';
+            };
+
+            SlamID.style.transition = 'ease-in-out 1s';
+            
+            break;
+        case '#CONTENTDashJump':
+            if (DashID.style.transform === 'translateX(22vw)') 
+                {
+                DashID.style.transform = 'translateX(0vw)';
+                DashID.style.visibility = 'hidden';
+            } else {
+                DashID.style.transform = 'translateX(22vw)';
+                DashID.style.visibility = 'visible';
+
+                ProjectileID.style.transform = 'translateX(0vw)';
+                ProjectileID.style.visibility = 'hidden';
+
+                SlamID.style.transform = 'translateX(0vw)';
+                SlamID.style.visibility = 'hidden';
+            };
+            DashID.style.transition = 'ease-in-out 1s';
+            
+            console.log("balls");
+            
+            break;
+        case '#CONTENTProjectileBoost':
+            if (ProjectileID.style.transform === 'translateX(22vw)') 
+                {
+                ProjectileID.style.transform = 'translateX(0vw)';
+                ProjectileID.style.visibility = 'hidden';
+            } else {
+                ProjectileID.style.transform = 'translateX(22vw)';
+                ProjectileID.style.visibility = 'visible';
+
+                SlamID.style.transform = 'translateX(0vw)';
+                SlamID.style.visibility = 'hidden';
+
+                DashID.style.transform = 'translateX(0vw)';
+                DashID.style.visibility = 'hidden';
+
+            };
+            ProjectileID.style.transition = 'ease-in-out 1s';
+            
+            
+            break;
+            
         default:
             console.log('Unknown hash:', hash);
     }
 });
+
+
