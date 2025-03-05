@@ -4,6 +4,10 @@ const start = document.getElementById('start-btn');
 const output = document.querySelector('.timeoutput');
 const button1 = document.querySelector('.bind1-btn');
 const button2 = document.querySelector('.bind2-btn');
+const dropdown_button = document.querySelector('.dropbtn');
+const dropdown_content = document.querySelector('.dropup-content');
+const dropdown_A = document.querySelectorAll('drop-A');
+const timingH4 = document.getElementById('#timing');
 
 
 const keyBindings = {
@@ -11,11 +15,9 @@ const keyBindings = {
     button2: null, 
 };
 
-document.addEventListener('DOMContentLoaded', () =>{
-     keyBindings = {
-        button1: "ControlLeft", 
-        button2: "Space", 
-    };
+window.addEventListener('DOMContentLoaded', () =>{
+     keyBindings['button1'] = "ControlLeft";
+     keyBindings['button2'] = "Space";
 })
 
 
@@ -53,16 +55,21 @@ function handleKeyDown(button, keyBindingKey) {
 button1.addEventListener('click', handleKeyDown(button1, 'button1'));
 button2.addEventListener('click', handleKeyDown(button2, 'button2'));
 
+let isKeytrackActive = false;
 
-function handleStart() {
+function handleStart(timing) {
     console.log("skividi");
     let FirstTStamp = null;
     let SecondTStamp = null;
+    if (isKeytrackActive) {
+        console.log("Keytrack listener is already active.");
+        return;
+    }
 
     
     function keytrack(e) {
         console.log(e.code);
-
+        
 
         if (e.code === keyBindings.button1) {
             FirstTStamp = performance.now();
@@ -78,12 +85,16 @@ function handleStart() {
        
         if (FirstTStamp && SecondTStamp) {
             const timeDifference = SecondTStamp - FirstTStamp;
-            if (timeDifference < 200) {
+            if ( timeDifference < 0) {
+                output.innerHTML += `<div class = "output-text-fail">Wrong order!</div>`;
+            }
+            else if (timeDifference < timing) {
                 output.innerHTML += `<div class = "output-text-success">Done in ${timeDifference}ms </div>`;
             }
-            else {
+            else if(timeDifference > timing) {
                 output.innerHTML += `<div class = "output-text-fail">Done in ${timeDifference}ms</div>`;
             }
+            
 
             
             FirstTStamp = null;
@@ -94,9 +105,61 @@ function handleStart() {
 
     
     document.addEventListener('keydown', keytrack);
+    isKeytrackActive = true; 
+    
 }
 
 
 start.addEventListener('click', () => {
-    handleStart();
+    handleStart(currentTiming);
+});
+
+var currentTiming = 130; // its here lmao
+
+dropdown_button.addEventListener('click', () => {
+    dropdown_content.style.display = dropdown_content.style.display === 'flex' ? 'none' : 'flex';
+});
+
+// dropdown_A.addEventListener('click', () => {
+    
+//     dropdown_content.style.display = 'none';
+// });
+dropdown_A.forEach(link => {
+    link.addEventListener('click', (e) => {
+        
+        dropdown_content.style.display = 'none';
+        
+        
+        const hash = link.getAttribute('href');
+        window.location.hash = hash;
+    });
+});
+
+window.addEventListener('hashchange', function() {
+    var hash = window.location.hash;
+    switch(hash) {
+        case '#SlamStorage':
+            dropdown_button.textContent = "Slam Storage";
+            keyBindings.button1 = "ControlLeft";
+            keyBindings.button2 = "Space";
+            currentTiming = 130;
+            document.getElementById('timing').textContent = `Required timing: ${currentTiming}ms`;
+            break;
+        case '#DashJump':
+            dropdown_button.textContent = "Dash Jump";
+            keyBindings.button1 = "ShiftLeft";
+            keyBindings.button2 = "Space";
+            currentTiming = 100;
+            document.getElementById('timing').textContent = `Required timing: ${currentTiming}ms`;
+            break;
+        case '#ProjectileBoost':
+            dropdown_button.textContent = "Projectile Boost";
+            keyBindings.button1 = "ControlLeft";
+            keyBindings.button2 = "Space";
+            currentTiming = 100;
+            document.getElementById('timing').textContent = `Required timing: ${currentTiming}ms`;
+            break;
+        default:
+            console.log('Unknown hash:', hash);
+    }
 });

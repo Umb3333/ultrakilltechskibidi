@@ -1069,3 +1069,8 @@ body::before {
     box-shadow: var(--border-status-field);
     padding: 1px;
   }
+
+  a {
+    color: white;
+    text-decoration: none;
+  }

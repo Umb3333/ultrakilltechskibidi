@@ -11,6 +11,8 @@
 
 body {
     font-family: 'ULTRAFONT';
+    background-color: rgb(65, 9, 9);
+    
 }
 
 .container-main 
@@ -21,15 +23,17 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+        
     width: 70vw;
     background-color: var(--background-color);
     color: #e6e6e6;
     padding-right: 1em;
     padding-left: 1em;
+    top: -1em;
+    padding-bottom: 1em;
 }
 
-.container-main h3 {
+.container-main h3:not(#timing) {
    
     overflow: hidden;
     border-bottom: solid 1px #bbbbbb;
@@ -38,15 +42,23 @@ body {
 
 
 .tech-tester {
-    /* display: inline-flex;
-    flex-direction: column; */
-    display: block;
+    display: flex;
+    flex-direction: column; 
+    position: relative;
     justify-content: center;
     padding: 2em;
     border-color: #e6e6e6;
     border-width: 2px;
     border-style: solid;
     min-width: 30vw;
+}
+
+
+
+ option {
+    background-color: transparent;
+    color: #e6e6e6;
+    font-family: 'ULTRAFONT';
 }
 
 /* .tech-tester:not(#start-btn) {
@@ -76,7 +88,7 @@ body {
     flex-direction: row;
     justify-content: center;
     gap: 1rem;
-    padding-left: 9.5vw;
+    /* padding-left: 9.5vw; */
 }
 .start {
     display: flex;
@@ -103,7 +115,7 @@ body {
     overflow: auto;
     display: flex;
     flex-direction: column-reverse;
-    max-height: 20vh;
+    max-height: 12vh;
 }
 
 .output-text-success { 
@@ -113,3 +125,46 @@ body {
 .output-text-fail {
     background-color: red;
 }
+
+.AbsDiv {
+    position: absolute;
+    left: 0.5em;
+    top: 0.5em;
+}
+
+.dropup {
+    position: relative;
+    
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: #e6e6e6;
+    font-family: 'ULTRAFONT';
+    min-width: 8vw;
+    min-height: 4vh;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #e6e6e6;
+    padding: 1em;
+}
+
+.dropup-content {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background-color: transparent;
+    min-width: 8vw;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    text-decoration: none;
+  }
+
+  .dropup-content a {
+    color: #e6e6e6;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  
