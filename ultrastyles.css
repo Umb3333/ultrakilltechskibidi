@@ -314,6 +314,11 @@ body::before {
     top: -1em;
     padding-bottom: 1em;
   }
+
+  .container {
+    position: relative;
+    left: -24vw;
+  }
   
   .title-bar {
     background: linear-gradient(
@@ -1094,6 +1099,7 @@ body::before {
 
   #maintitle {
     font-size: 2rem;
+    margin-bottom: 1rem;
   }
 
 
