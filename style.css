@@ -220,7 +220,7 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-    top: -70em;
+    top: -69em;
     left: 1em;
     margin-top: 9vh;
     
@@ -236,14 +236,14 @@ body {
     visibility: hidden;
     height: 23vh;
     width: 80%;
-    top: -6em;
+    top: -2em;
   }
   #ProjectileBoostTab {
     z-index: -100;
     visibility: hidden;
     height: 23vh;
     width: 80%;
-    top: -2em;
+    top: 8.9em;
   }
 
   #DashJumpID {

@@ -17,11 +17,17 @@ const keyBindings = {
     button1: null, 
     button2: null, 
 };
-
-window.addEventListener('DOMContentLoaded', () =>{
-     keyBindings['button1'] = "ControlLeft";
-     keyBindings['button2'] = "Space";
-})
+// DONT TOUCH THIS
+// window.addEventListener('DOMContentLoaded', () =>{
+//      if (window.location.hash != null) {
+        
+//         window.location.href = "/";
+//      }
+//      else {
+        
+//         window.location.href = null;
+//      }
+// });
 
 
 function handleKeyDown(button, keyBindingKey) {
