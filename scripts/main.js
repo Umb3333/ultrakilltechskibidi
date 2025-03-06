@@ -19,7 +19,7 @@ const keyBindings = {
 };
  // DONT TOUCH THIS
  window.addEventListener('DOMContentLoaded', () =>{
-    
+
 
 
     //   switch(window.location.hash) {
@@ -164,10 +164,10 @@ window.addEventListener('hashchange', function() {
             document.getElementById('timing').textContent = `Required timing: ${currentTiming}ms`;
             break;
         case '#ProjectileBoost':
-            dropdown_button.textContent = "Projectile Boost";
+            dropdown_button.textContent = "ULTRADIVE";
             keyBindings.button1 = "ControlLeft";
             keyBindings.button2 = "Space";
-            currentTiming = 100;
+            currentTiming = 80;
             document.getElementById('timing').textContent = `Required timing: ${currentTiming}ms`;
             break;
 
