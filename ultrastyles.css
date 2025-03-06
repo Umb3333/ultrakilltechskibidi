@@ -195,8 +195,8 @@ body::before {
   .title-bar,
   li[role=tab] {
     font-family: "Pixelated MS Sans Serif", Arial;
-    -webkit-font-smoothing: none;
-    font-size: 13px;
+    -webkit-font-smoothing: none!important;
+    font-size: 13px!important;
   }
   
   h1 {

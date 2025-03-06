@@ -17,17 +17,19 @@ const keyBindings = {
     button1: null, 
     button2: null, 
 };
-// DONT TOUCH THIS
-// window.addEventListener('DOMContentLoaded', () =>{
-//      if (window.location.hash != null) {
-        
-//         window.location.href = "/";
-//      }
-//      else {
-        
-//         window.location.href = null;
-//      }
-// });
+ // DONT TOUCH THIS
+ window.addEventListener('DOMContentLoaded', () =>{
+    
+
+
+    //   switch(window.location.hash) {
+    //       case includes('#'): {
+    //             console.log("help");
+    //           window.location.hash = null;  
+    //       } 
+    //       break;
+    //   };
+ });
 
 
 function handleKeyDown(button, keyBindingKey) {
