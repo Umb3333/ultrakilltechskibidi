@@ -1103,7 +1103,7 @@ body::before {
 
 
   #maintitle {
-    font-size: 2rem;
+    font-size: 2rem!important;
     margin-bottom: 1rem;
   }
 
