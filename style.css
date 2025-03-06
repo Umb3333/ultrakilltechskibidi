@@ -14,6 +14,8 @@ body {
     background-color: rgb(65, 9, 9);
     background-image: url("Light_Up_the_Night.webp");
     background-size: cover;
+    background-position: center;
+    overflow-x: hidden;
 }
 
 .container-main 
@@ -52,6 +54,7 @@ body {
     border-width: 2px;
     border-style: solid;
     min-width: 30vw;
+    background-color: #262626;
 }
 
 
@@ -81,6 +84,7 @@ body {
     font-family: 'ULTRAFONT';
     min-width: 7vw;
     min-height: 7vh;
+    font-size: 0.7em;
 }
 
 
@@ -104,7 +108,7 @@ body {
     font-family: 'ULTRAFONT';
     min-width: 10vw;
     min-height: 5vh;
-
+    font-size: 1.5em;
 }
 
 .output {
@@ -186,5 +190,63 @@ body {
     margin-left: 2%;
   }
   
+  .content-layer {
+    display:    inherit;
+    margin-bottom: -76vh;
+  }
   
-  
+  .window {
+    z-index: 100;
+  }
+
+  .gif {
+    
+   
+    z-index: -100;
+    height: 20vh;
+    
+    top: 0;
+    left: 0;
+  }
+
+  .gif:nth-child(2) {
+    top: 0vh;
+  }
+  .gif:nth-child(3) {
+    top: 56vh;
+  }
+
+  .gif-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: -69em;
+    left: 1em;
+    margin-top: 9vh;
+    
+  }
+  #DashTab {
+    z-index: -100;
+    visibility: hidden;
+    height: 23vh;
+    width: 80%;
+  }
+  #SlamStorageTab {
+    z-index: -100;
+    visibility: hidden;
+    height: 23vh;
+    width: 80%;
+    top: -2em;
+  }
+  #ProjectileBoostTab {
+    z-index: -100;
+    visibility: hidden;
+    height: 23vh;
+    width: 80%;
+    top: 8.9em;
+  }
+
+  #DashJumpID {
+
+    top: 10vh;
+  }
