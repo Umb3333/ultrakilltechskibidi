@@ -1,3 +1,5 @@
+//Toggle för content tab så att den visar contents
+
 document.querySelector('.toggle').addEventListener('click', function(){
     let nested = this.nextElementSibling;
     if(nested.style.display === "block") {
@@ -9,6 +11,7 @@ document.querySelector('.toggle').addEventListener('click', function(){
     }
 });
 
+//Hide button för content bar ifall man vill få bort den
 document.querySelector('.hide-btn').addEventListener('click', function() {
     let tocList = document.querySelector('.toc-list');
     if (tocList.style.display === "none") {
