@@ -1,14 +1,15 @@
+/* Font setup */
 @font-face {
     font-family: 'ULTRAFONT';
     src: url('VCR_OSD_MONO_1.001.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
-
+/* Variables */
 :root {
     --background-color: rgba(0, 0, 0, 0.6);
 }
-
+/* Base styles */
 body {
     font-family: 'ULTRAFONT';
     background-color: rgb(65, 9, 9);
@@ -17,7 +18,7 @@ body {
     background-position: center;
     overflow-x: hidden;
 }
-
+/* Main container */
 .container-main 
 {
     position: relative;
@@ -36,6 +37,7 @@ body {
     padding-bottom: 1em;
 }
 
+/* Heading styles */
 .container-main h3:not(#timing) {
    
     overflow: hidden;
@@ -43,7 +45,7 @@ body {
     border-image: linear-gradient(to right,var(#e6e6e6)),50%,transparent,100%,transparent 1;
 }
 
-
+/* Tech tester panel */
 .tech-tester {
     display: flex;
     flex-direction: column; 
@@ -58,7 +60,7 @@ body {
 }
 
 
-
+/* Form elements */
  option {
     background-color: transparent;
     color: #e6e6e6;
@@ -77,6 +79,7 @@ body {
     border-style: solid;
     min-width: 5vw; */
 }
+/* Button styles */
 
 #binds button {
     background-color: transparent;
@@ -110,7 +113,7 @@ body {
     min-height: 5vh;
     font-size: 1.5em;
 }
-
+/* Output area */
 .output {
     margin-top: 2em;
     padding: 2em;
@@ -135,12 +138,14 @@ body {
     font-size: small;
 }
 
+/* Positioning elements */
 .AbsDiv {
     position: absolute;
     left: 0.5em;
     top: 0.5em;
 }
 
+/* Dropup menu */
 .dropup {
     position: relative;
     
@@ -175,6 +180,7 @@ body {
     text-decoration: none;
     display: block;
   }
+  /* Output heading styles */ 
 
   .output h2
   {
@@ -190,6 +196,8 @@ body {
     margin-left: 2%;
   }
   
+
+/* Layering */
   .content-layer {
     display:    inherit;
     margin-bottom: -76vh;
@@ -216,6 +224,7 @@ body {
     top: 56vh;
   }
 
+/* GIF elements */
   .gif-container {
     display: flex;
     flex-direction: column;
@@ -225,31 +234,25 @@ body {
     margin-top: 9vh;
     
   }
-  #DashTab {
-    z-index: -100;
-    visibility: hidden;
-    height: 23vh;
-    width: 80%;
-  }
-  #SlamStorageTab {
-    z-index: -100;
-    visibility: hidden;
-    height: 23vh;
-    width: 80%;
-    top: -2em;
-  }
-  #ProjectileBoostTab {
-    z-index: -100;
-    visibility: hidden;
-    height: 23vh;
-    width: 80%;
-    top: 8.9em;
-  }
+ /* Tab styles */
+#DashTab, #SlamStorageTab, #ProjectileBoostTab {
+  z-index: -100;
+  visibility: hidden;
+  height: 23vh;
+  width: 80%;
+}
 
-  #DashJumpID {
+#SlamStorageTab {
+  top: -2em;
+}
 
-    top: 10vh;
-  }
+#ProjectileBoostTab {
+  top: 8.9em;
+}
+
+#DashJumpID {
+  top: 10vh;
+}
 
 
   /* For Firefox - specific features */
