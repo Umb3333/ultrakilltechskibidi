@@ -1,3 +1,23 @@
+//   ______ __  __          _   _ _    _ ______ _       _____ 
+//  |  ____|  \/  |   /\   | \ | | |  | |  ____| |     / ____|
+//  | |__  | \  / |  /  \  |  \| | |  | | |__  | |    | (___  
+//  |  __| | |\/| | / /\ \ | . ` | |  | |  __| | |     \___ \ 
+//  | |____| |  | |/ ____ \| |\  | |__| | |____| |____ ____) |
+//  |______|_|  |_/_/    \_\_| \_|\____/|______|______|_____/ 
+// 
+// _  ______  _____  
+// | |/ / __ \|  __ \ 
+// | ' / |  | | |  | |
+// |  <| |  | | |  | |
+// | . \ |__| | |__| |
+// |_|\_\____/|_____/ 
+                   
+                   
+                 
+                 
+                                                           
+                                                           
+// Declare variables 
 const button1div = document.querySelector('.bind1');
 const button2div = document.querySelector('.bind2');
 const start = document.getElementById('start-btn');
@@ -12,7 +32,7 @@ const DashID = document.getElementById('DashTab');
 const SlamID = document.getElementById('SlamStorageTab');
 const ProjectileID = document.getElementById('ProjectileBoostTab');
 
-
+// keybinds for buttons
 const keyBindings = {
     button1: null, 
     button2: null, 
@@ -31,24 +51,26 @@ const keyBindings = {
     //   };
  });
 
-
+// Function to get binds for buttons
 function handleKeyDown(button, keyBindingKey) {
     return function () {
+        
         button.textContent = "BIND.."; 
 
         function keyDownHandler(e) {
             e.preventDefault(); 
             console.log(e.code);
-
+            // Edge case for esc 
             if (e.code === "Escape") {
-                
+                // Lets you exit the binding and sets it to null.
                 button.textContent = "BIND";
                 keyBindings[keyBindingKey] = null; 
+                // When done, remove the keydown listener to prevent more than one input
                 document.removeEventListener('keydown', keyDownHandler);
                 return;
             }
 
-            
+            // Set the button text to the key that was pressed in caps 
             button.textContent = e.code.toUpperCase();
             keyBindings[keyBindingKey] = e.code; 
             console.log(`Key bound for ${keyBindingKey}: ${e.code}`);
@@ -57,37 +79,41 @@ function handleKeyDown(button, keyBindingKey) {
             document.removeEventListener('keydown', keyDownHandler);
         }
 
-        
+        // When bind is set, add the keydown listener again to capture the next key on click.
         document.addEventListener('keydown', keyDownHandler);
     };
 }
 
-
+// assigns the function to the buttons.
 button1.addEventListener('click', handleKeyDown(button1, 'button1'));
 button2.addEventListener('click', handleKeyDown(button2, 'button2'));
-
+// bool for checking if keytracking is active
 let isKeytrackActive = false;
 
 function handleStart(timing) {
     console.log("skividi");
+
+    // Define Time stamps
     let FirstTStamp = null;
     let SecondTStamp = null;
+    // checks if its already listening for keystrokes. 
     if (isKeytrackActive) {
         console.log("Keytrack listener is already active.");
         return;
     }
 
-    
+    // FUNCTION INSIDE ANOTHER FUNCTION ‼‼‼
     function keytrack(e) {
         console.log(e.code);
         
-
+        // Checks if the key pressed is the first key
         if (e.code === keyBindings.button1) {
+            // Using the performance Web API to get precise timestamps
             FirstTStamp = performance.now();
             console.log(`Button 1 key pressed at: ${FirstTStamp}`);
         }
 
-        
+        // Checks if the key pressed is the second key
         if (e.code === keyBindings.button2) {
             SecondTStamp = performance.now();
             console.log(`Button 2 key pressed at: ${SecondTStamp}`);
